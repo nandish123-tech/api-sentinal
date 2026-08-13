@@ -50,7 +50,7 @@ export function useApiSentinel() {
 
   const checkHealth = useCallback(async () => {
     try {
-      const r = await fetch('/health');
+      const r = await fetch(`${BASE}/health`);
       const h = await r.json();
       setEnforcement(!!h.enforcement);
     } catch (_) {}
@@ -95,11 +95,11 @@ export function useApiSentinel() {
       const headers = { 'X-User-ID': '101' };
 
       if (scenario === 'normal') {
-        const r = await fetch('/api/orders/101', { headers });
+        const r = await fetch(`${BASE}/api/orders/101`, { headers });
         addToast(`✅ Legitimate access → HTTP ${r.status}`, r.status === 200 ? 'success' : 'warn');
 
       } else if (scenario === 'bola') {
-        const r = await fetch('/api/billing/202', { headers });
+        const r = await fetch(`${BASE}/api/billing/202`, { headers });
         const data = await r.json().catch(() => ({}));
         if (r.status === 403) {
           addToast(`🚨 BOLA blocked! HTTP 403 — ${data.reason || 'unauthorized'}`, 'error');
@@ -108,19 +108,19 @@ export function useApiSentinel() {
         }
 
       } else if (scenario === 'shadow') {
-        const r = await fetch('/api/admin/debug', { headers });
+        const r = await fetch(`${BASE}/api/admin/debug`, { headers });
         addToast(`👻 Shadow API triggered — HTTP ${r.status} (check feed)`, 'info');
 
       } else if (scenario === 'enum') {
         addToast('🔍 Starting enumeration scan (orders 101–110)…', 'warn');
         for (let i = 101; i <= 110; i++) {
-          await fetch(`/api/orders/${i}`, { headers });
+          await fetch(`${BASE}/api/orders/${i}`, { headers });
           await new Promise(res => setTimeout(res, 120));
         }
         addToast('🔍 Enumeration complete — check threat feed', 'warn');
 
       } else if (scenario === 'deprecated') {
-        const r = await fetch('/api/v1/legacy/orders', { headers });
+        const r = await fetch(`${BASE}/api/v1/legacy/orders`, { headers });
         addToast(`⚠️ Deprecated route accessed — HTTP ${r.status}`, 'info');
       }
     } catch (err) {
