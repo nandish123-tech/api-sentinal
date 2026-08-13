@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const BASE = '';
+const BASE = import.meta.env.VITE_API_URL || '';
 
 export function useApiSentinel() {
   const [stats, setStats] = useState(null);
