@@ -1,0 +1,18 @@
+[
+  {"object_type": "order",   "object_id": "101",  "owner_id": "user_101", "role": "owner"},
+  {"object_type": "order",   "object_id": "102",  "owner_id": "user_101", "role": "owner"},
+  {"object_type": "order",   "object_id": "103",  "owner_id": "user_101", "role": "owner"},
+  {"object_type": "order",   "object_id": "201",  "owner_id": "user_202", "role": "owner"},
+  {"object_type": "order",   "object_id": "202",  "owner_id": "user_202", "role": "owner"},
+  {"object_type": "order",   "object_id": "203",  "owner_id": "user_202", "role": "owner"},
+  {"object_type": "order",   "object_id": "301",  "owner_id": "user_303", "role": "owner"},
+  {"object_type": "billing", "object_id": "101",  "owner_id": "user_101", "role": "owner"},
+  {"object_type": "billing", "object_id": "202",  "owner_id": "user_202", "role": "owner"},
+  {"object_type": "billing", "object_id": "303",  "owner_id": "user_303", "role": "owner"},
+  {"object_type": "user",    "object_id": "101",  "owner_id": "user_101", "role": "self"},
+  {"object_type": "user",    "object_id": "202",  "owner_id": "user_202", "role": "self"},
+  {"object_type": "user",    "object_id": "303",  "owner_id": "user_303", "role": "self"},
+  {"object_type": "profile", "object_id": "101",  "owner_id": "user_101", "role": "owner"},
+  {"object_type": "profile", "object_id": "202",  "owner_id": "user_202", "role": "owner"},
+  {"object_type": "profile", "object_id": "303",  "owner_id": "user_303", "role": "owner"}
+]

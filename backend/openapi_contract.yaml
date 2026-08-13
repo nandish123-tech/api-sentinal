@@ -1,0 +1,101 @@
+openapi: "3.0.3"
+info:
+  title: "Sandbox API"
+  version: "1.0.0"
+  description: "Declared API contract for the API-Sentinel sandbox."
+
+paths:
+  /api/orders:
+    get:
+      summary: "List orders for authenticated user"
+      tags: [orders]
+      operationId: listOrders
+    post:
+      summary: "Create a new order"
+      tags: [orders]
+      operationId: createOrder
+
+  /api/orders/{orderId}:
+    get:
+      summary: "Get a specific order by ID"
+      tags: [orders]
+      operationId: getOrder
+    delete:
+      summary: "Cancel an order"
+      tags: [orders]
+      operationId: deleteOrder
+
+  /api/billing/{userId}:
+    get:
+      summary: "Get billing record for a user"
+      tags: [billing]
+      operationId: getBilling
+
+  /api/users/{userId}/profile:
+    get:
+      summary: "Get a user's profile"
+      tags: [users]
+      operationId: getUserProfile
+    put:
+      summary: "Update a user's profile"
+      tags: [users]
+      operationId: updateUserProfile
+
+  /api/users/{userId}:
+    get:
+      summary: "Get user details"
+      tags: [users]
+      operationId: getUser
+
+  /api/products:
+    get:
+      summary: "List all products"
+      tags: [products]
+      operationId: listProducts
+
+  /api/products/{productId}:
+    get:
+      summary: "Get product details"
+      tags: [products]
+      operationId: getProduct
+
+  /api/v1/inventory:
+    get:
+      summary: "Get API inventory (Sentinel dashboard)"
+      tags: [sentinel]
+      operationId: getInventory
+
+  /api/v1/alerts:
+    get:
+      summary: "Get security alerts (Sentinel dashboard)"
+      tags: [sentinel]
+      operationId: getAlerts
+
+  /api/v1/events:
+    get:
+      summary: "Get recent events (Sentinel dashboard)"
+      tags: [sentinel]
+      operationId: getEvents
+
+  /api/v1/stats:
+    get:
+      summary: "Get dashboard statistics"
+      tags: [sentinel]
+      operationId: getStats
+
+  # ── Deprecated routes (still in contract, marked retired) ─────────────────
+  /api/v1/legacy/orders:
+    get:
+      summary: "Legacy orders endpoint (deprecated)"
+      tags: [orders, legacy]
+      deprecated: true
+      operationId: legacyListOrders
+
+  /api/v1/legacy/users/{userId}:
+    get:
+      summary: "Legacy user endpoint (deprecated)"
+      tags: [users, legacy]
+      deprecated: true
+      operationId: legacyGetUser
+
+  # NOTE: /api/admin/debug is intentionally NOT listed here → Shadow API demo
