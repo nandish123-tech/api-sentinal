@@ -72,7 +72,10 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# ── CORS ──────────────────────────────────────────────────────────────────────
+# ── Sentinel middleware ───────────────────────────────────────────────────────
+app.add_middleware(SentinelMiddleware)
+
+# ── CORS (must be added LAST to be OUTERMOST) ─────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
@@ -80,9 +83,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# ── Sentinel middleware (must be added AFTER CORS) ────────────────────────────
-app.add_middleware(SentinelMiddleware)
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(dashboard_router)
