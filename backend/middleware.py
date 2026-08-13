@@ -63,8 +63,8 @@ class SentinelMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next) -> Response:
         path = request.url.path
 
-        # ── Skip sentinel paths ───────────────────────────────────────────────
-        if path in _SKIP_PATHS or any(path.startswith(p) for p in _SKIP_PREFIXES):
+        # ── Skip sentinel paths and CORS preflight ────────────────────────────
+        if request.method == "OPTIONS" or path in _SKIP_PATHS or any(path.startswith(p) for p in _SKIP_PREFIXES):
             return await call_next(request)
 
         # ── Build event skeleton ──────────────────────────────────────────────
