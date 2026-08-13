@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 from typing import AsyncIterator
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, Request
 from sse_starlette.sse import EventSourceResponse
 
 from config import settings
@@ -110,7 +110,7 @@ async def get_stats():
 # ── SSE Real-time Alert Stream ────────────────────────────────────────────────
 
 @router.get("/stream")
-async def stream_alerts(request):
+async def stream_alerts(request: Request):
     """Server-Sent Events: push new alerts to the dashboard in real time."""
 
     async def _generator() -> AsyncIterator[dict]:
