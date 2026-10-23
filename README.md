@@ -183,7 +183,7 @@ python -m venv venv
 
 **Windows (PowerShell):**
 ```powershell
-.\venv\Scripts\Activateps1
+.\venv\Scripts\Activate.ps1
 ```
 
 **Windows (Command Prompt):**
