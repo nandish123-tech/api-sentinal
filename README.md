@@ -212,7 +212,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 | ## 👨‍💻 Author
 
-**Aaqib Mushtaq**
+**Y S Nandish**
 
 Developed as a final-year cybersecurity project to demonstrate modern runtime API protection using behaviour-based threat detection.
 
