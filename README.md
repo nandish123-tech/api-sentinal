@@ -208,7 +208,7 @@ python -m pip install -r requirements.txt
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Step 7 — Open the dashboar
+### Step 7 — Open the dashboard
 
 | ## 👨‍💻 Author
 
@@ -243,7 +243,7 @@ docker composedown
 docker compose down -v
 ```
 
-Access the dashboar at **http://localhost:8000**
+Access the dashboard at **http://localhost:8000**
 
 ---
 
