@@ -163,7 +163,7 @@ API SENTINAL/
 ### Step 1 — Clone the repository
 
 ```bash
-git clone https://github.com/YOU_USERNAME/api-sentinel.git
+git clone https://github.com/nandish123-tech/api-sentinel.git
 cd api-sentinel
 ```
 
